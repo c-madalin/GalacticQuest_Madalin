@@ -1,4 +1,6 @@
-﻿namespace GalacticQuest
+﻿using GalacticQuest.Models;
+
+namespace GalacticQuest
 {
     internal class Program
     {
@@ -6,9 +8,10 @@
         {
             Console.WriteLine("Hello, Galactic Quest!");
 
-            CreateAndDisplayPlayerStats();
+            //CreateAndDisplayPlayerStats();
 
-            OpenMainMenu();
+            //OpenMainMenu();
+            DisplayMonsters();
         }
 
         private static void CreateAndDisplayPlayerStats()
@@ -270,6 +273,22 @@
                     Console.WriteLine(filteredMonstersByName.Keys.ElementAt(index) + " - " + filteredMonstersByName.Values.ElementAt(index) + " HP");
                 }
             }
+        }
+
+        internal static void DisplayMonsters()
+        {
+            List<Monster> monsters = new List<Monster>()
+            {
+                new Kraken(),
+                new Vioraptoru(),
+                new Kraken()
+            };
+
+            for (int i = 0; i < monsters.Count; i++)
+            {
+                monsters[i].OnDeath();
+            }
+
         }
     }
 }
